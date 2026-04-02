@@ -985,7 +985,9 @@ img { max-width: 100%; height: auto; display: block; }
       </div>
     </div>
 
-    <div class="absorption-flow" style="margin-top:48px;">
+    <h3 class="heading-lg" style="margin-top:56px;color:var(--text);" data-aos="fade-up" data-aos-duration="400">Where Do 447 Students Go?</h3>
+    <p class="body-text" style="margin-bottom:24px;">If Oak Grove closes, students get absorbed into schools that are already near or over capacity.</p>
+    <div class="absorption-flow">
       <div class="flow-step" data-aos="fade-right" data-aos-delay="0">
         <div class="step-num">Step 1</div>
         <div class="step-text">OGE closes</div>
@@ -1403,7 +1405,7 @@ document.getElementById('subscribe-form').addEventListener('submit', async (e) =
 });
 </script>
 <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.7/chart.umd.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.5.0/chart.umd.min.js"></script>
 <script>AOS.init({ once: true, duration: 700, offset: 80 });</script>
 <script>
 // ═══ STAT COUNTER ANIMATION ═══
@@ -1481,8 +1483,11 @@ document.getElementById('subscribe-form').addEventListener('submit', async (e) =
 
 // ═══ ENROLLMENT TREND CHART ═══
 (function() {
+  if (typeof Chart === 'undefined') return;
   var canvas = document.getElementById('enrollment-chart');
   if (!canvas) return;
+  canvas.style.width = '100%';
+  canvas.style.height = '100%';
   var ctx = canvas.getContext('2d');
   var labels = ['Oct 2019', 'Oct 2021', 'Oct 2022', 'Oct 2023', 'Oct 2025', 'Fall 2026*'];
   var ogeData = [505, 368, 365, 388, 447, 487];
