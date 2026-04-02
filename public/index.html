@@ -389,7 +389,7 @@ img { max-width: 100%; height: auto; display: block; }
   font-size: 0.93rem; line-height: 1.65;
   color: var(--text-mid);
 }
-.accordion-item.open .accordion-content { max-height: 600px; }
+.accordion-item.open .accordion-content { max-height: 1200px; }
 .accordion-item.open .icon { transform: rotate(45deg); }
 
 /* ═══ QUOTES ═══ */
@@ -509,6 +509,219 @@ img { max-width: 100%; height: auto; display: block; }
 .coalition-banner {
   background: var(--cream);
   border-top: 3px solid var(--gold);
+}
+
+/* ═══ STAT COUNTERS ═══ */
+.stat-counters {
+  display: grid; grid-template-columns: repeat(3, 1fr);
+  gap: 24px; margin-top: 48px;
+}
+.stat-counter-card {
+  background: rgba(255,255,255,0.06);
+  border: 1px solid rgba(255,255,255,0.1);
+  border-radius: 12px;
+  padding: 36px 28px;
+  text-align: center;
+}
+.stat-counter-card .counter-value {
+  font-size: clamp(2.4rem, 5vw, 3.4rem);
+  font-weight: 900;
+  color: var(--gold);
+  line-height: 1;
+  margin-bottom: 8px;
+}
+.stat-counter-card .counter-label {
+  font-size: 0.92rem; font-weight: 600;
+  color: rgba(255,255,255,0.85);
+  margin-bottom: 6px;
+}
+.stat-counter-card .counter-comparison {
+  font-size: 0.82rem;
+  color: rgba(255,255,255,0.45);
+}
+@media (max-width: 640px) {
+  .stat-counters { grid-template-columns: 1fr; gap: 16px; }
+}
+
+/* ═══ CLUSTER TABLE ═══ */
+.cluster-table-wrap {
+  margin-top: 40px;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  border-radius: 12px;
+  border: 1px solid rgba(255,255,255,0.1);
+}
+.cluster-table {
+  width: 100%; border-collapse: collapse;
+  min-width: 580px; font-size: 0.9rem;
+}
+.cluster-table th {
+  background: rgba(255,255,255,0.08);
+  color: rgba(255,255,255,0.7);
+  font-size: 0.75rem; font-weight: 700;
+  text-transform: uppercase; letter-spacing: 0.08em;
+  padding: 14px 18px; text-align: left;
+  border-bottom: 1px solid rgba(255,255,255,0.1);
+  white-space: nowrap;
+}
+.cluster-table td {
+  padding: 14px 18px;
+  border-bottom: 1px solid rgba(255,255,255,0.06);
+  color: rgba(255,255,255,0.85);
+}
+.cluster-table tr.row-oge {
+  background: var(--blue);
+}
+.cluster-table tr.row-oge td {
+  color: var(--white); font-weight: 600;
+}
+.cluster-table tr.row-avg {
+  font-style: italic;
+}
+.cluster-table tr.row-avg td {
+  color: rgba(255,255,255,0.4);
+}
+.cluster-table .cell-above { background: rgba(45,125,70,0.25); }
+.cluster-table .cell-below { background: rgba(184,50,48,0.2); }
+.cluster-table th.sortable { cursor: pointer; user-select: none; }
+.cluster-table th.sortable:hover { color: var(--gold); }
+.cluster-table th.sortable::after { content: ' ↕'; font-size: 0.7em; opacity: 0.5; }
+@media (max-width: 640px) {
+  .cluster-table-wrap { margin-left: -20px; margin-right: -20px; border-radius: 0; }
+  .cluster-table td:first-child, .cluster-table th:first-child {
+    position: sticky; left: 0; z-index: 2;
+    background: inherit;
+  }
+  .cluster-table tr.row-oge td:first-child { background: var(--blue); }
+}
+
+/* ═══ ENROLLMENT CHART ═══ */
+.chart-container {
+  margin-top: 40px;
+  background: var(--white);
+  border-radius: 12px;
+  padding: 28px;
+  border: 1px solid rgba(0,0,0,0.06);
+  min-height: 280px;
+}
+
+/* ═══ COST BARS ═══ */
+.cost-bars { margin-top: 40px; }
+.cost-bar-row {
+  margin-bottom: 20px;
+}
+.cost-bar-label {
+  font-size: 0.9rem; font-weight: 600;
+  margin-bottom: 8px; color: var(--text);
+  display: flex; justify-content: space-between; align-items: baseline;
+}
+.cost-bar-label .cost-amount {
+  font-size: 0.85rem; font-weight: 700; color: var(--text-mid);
+}
+.cost-bar-track {
+  height: 36px; background: var(--cream-dark);
+  border-radius: 8px; overflow: hidden;
+}
+.cost-bar-fill {
+  height: 100%; border-radius: 8px;
+  width: 0; transition: width 1.2s cubic-bezier(0.22, 1, 0.36, 1);
+  display: flex; align-items: center; justify-content: flex-end;
+  padding-right: 12px;
+  font-size: 0.75rem; font-weight: 700; color: var(--white);
+}
+.cost-bar-fill.green { background: var(--green); }
+.cost-bar-fill.red { background: var(--red); }
+.cost-callout {
+  background: #FEF9E7;
+  border-left: 4px solid var(--gold);
+  border-radius: 0 12px 12px 0;
+  padding: 24px 28px;
+  margin-top: 28px;
+  font-size: 0.95rem; line-height: 1.6;
+  color: var(--text);
+  font-weight: 500;
+}
+
+/* ═══ PROCESS CHECKLIST ═══ */
+.process-checklist {
+  display: grid; gap: 16px; margin-top: 36px;
+}
+.check-card {
+  background: var(--white);
+  border-radius: 12px;
+  border: 1px solid rgba(0,0,0,0.06);
+  border-left: 4px solid var(--red);
+  padding: 24px 28px;
+  display: flex; gap: 16px; align-items: flex-start;
+}
+.check-card .x-icon {
+  flex-shrink: 0;
+  width: 28px; height: 28px;
+  background: var(--red);
+  color: var(--white);
+  border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  font-weight: 900; font-size: 0.85rem;
+  margin-top: 2px;
+}
+.check-card .check-condition {
+  font-weight: 700; font-size: 0.95rem;
+  color: var(--text); margin-bottom: 4px;
+}
+.check-card .check-explanation {
+  font-size: 0.88rem; color: var(--text-light); line-height: 1.5;
+}
+
+/* ═══ ABSORPTION FLOW ═══ */
+.absorption-flow {
+  display: flex; align-items: stretch; gap: 0;
+  margin-top: 40px;
+}
+.flow-step {
+  flex: 1;
+  background: var(--white);
+  border: 2px solid var(--blue);
+  border-radius: 12px;
+  padding: 24px 20px;
+  position: relative;
+}
+.flow-step .step-num {
+  font-size: 0.72rem; font-weight: 700;
+  text-transform: uppercase; letter-spacing: 0.1em;
+  color: var(--blue); margin-bottom: 8px;
+}
+.flow-step .step-text {
+  font-size: 0.9rem; font-weight: 600;
+  color: var(--text); line-height: 1.4;
+}
+.flow-step .step-detail {
+  font-size: 0.82rem; color: var(--text-light);
+  margin-top: 4px;
+}
+.flow-arrow {
+  display: flex; align-items: center; justify-content: center;
+  font-size: 1.5rem; color: var(--text-light);
+  padding: 0 12px; flex-shrink: 0;
+}
+.flow-result {
+  flex: 1;
+  background: #dc2626;
+  border-radius: 12px;
+  padding: 24px 20px;
+  color: var(--white);
+}
+.flow-result .step-text {
+  color: var(--white); font-weight: 700;
+  font-size: 0.95rem; line-height: 1.4;
+}
+@media (max-width: 768px) {
+  .absorption-flow {
+    flex-direction: column; gap: 0;
+  }
+  .flow-arrow {
+    transform: rotate(90deg);
+    padding: 8px 0;
+  }
 }
 
 /* AOS overrides */
@@ -677,22 +890,56 @@ img { max-width: 100%; height: auto; display: block; }
     <h2 class="heading-xl" data-aos="fade-up">Our Kids Are Thriving.<br>Here's the Proof.</h2>
     <p class="body-text body-text-white" style="margin-bottom:0;">Oak Grove consistently outperforms the district on every metric that matters.</p>
 
-    <div class="stat-strip" data-aos="fade-up" data-aos-delay="200">
-      <div class="stat-strip-item">
-        <div class="num gold">#1</div>
-        <div class="lbl">in DeKalb County</div>
-        <div style="font-size:0.82rem;opacity:0.5;margin-top:4px;">3rd grade reading: 78.1% vs. 33.4%</div>
+    <div class="stat-counters">
+      <div class="stat-counter-card" data-aos="fade-up" data-aos-duration="600">
+        <div class="counter-value"><span class="counter" data-target="78.1" data-suffix="%">0%</span></div>
+        <div class="counter-label">3rd Grade Reading</div>
+        <div class="counter-comparison">County average: 33.4%</div>
       </div>
-      <div class="stat-strip-item">
-        <div class="num gold">87.6</div>
-        <div class="lbl">CCRPI Score</div>
-        <div style="font-size:0.82rem;opacity:0.5;margin-top:4px;">Top 15% of all DeKalb schools</div>
+      <div class="stat-counter-card" data-aos="fade-up" data-aos-duration="600" data-aos-delay="100">
+        <div class="counter-value"><span class="counter" data-target="87.6" data-suffix="">0</span></div>
+        <div class="counter-label">CCRPI Score</div>
+        <div class="counter-comparison">County average: 71.4</div>
       </div>
-      <div class="stat-strip-item">
-        <div class="num gold">3.6%</div>
-        <div class="lbl">Chronic Absenteeism</div>
-        <div style="font-size:0.82rem;opacity:0.5;margin-top:4px;">County average: 21.2%</div>
+      <div class="stat-counter-card" data-aos="fade-up" data-aos-duration="600" data-aos-delay="200">
+        <div class="counter-value"><span class="counter" data-target="3.6" data-suffix="%">0%</span></div>
+        <div class="counter-label">Chronic Absenteeism</div>
+        <div class="counter-comparison">County average: 21.2%</div>
       </div>
+    </div>
+
+    <div class="cluster-table-wrap" data-aos="fade-up" data-aos-duration="600" data-aos-delay="300">
+      <table class="cluster-table" id="cluster-table">
+        <thead>
+          <tr>
+            <th>School</th>
+            <th class="sortable" data-col="1">CCRPI</th>
+            <th class="sortable" data-col="2">3rd Grade Reading</th>
+            <th class="sortable" data-col="3">Chronic Absenteeism</th>
+            <th class="sortable" data-col="4">Portables</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr class="row-oge" data-aos="fade-up" data-aos-delay="0">
+            <td>Oak Grove</td><td class="cell-above">87.6</td><td class="cell-above">78.1%</td><td class="cell-above">3.6%</td><td class="cell-above">0</td>
+          </tr>
+          <tr data-aos="fade-up" data-aos-delay="100">
+            <td>Briarlake</td><td class="cell-above">88.6</td><td class="cell-above">65.6%</td><td class="cell-below">15.6%</td><td>4</td>
+          </tr>
+          <tr data-aos="fade-up" data-aos-delay="200">
+            <td>Sagamore Hills</td><td class="cell-above">76.5</td><td class="cell-above">53.4%</td><td class="cell-below">14.1%</td><td>6</td>
+          </tr>
+          <tr data-aos="fade-up" data-aos-delay="300">
+            <td>Henderson Mill</td><td class="cell-above">79.7</td><td>30.5%</td><td class="cell-below">15.7%</td><td>7</td>
+          </tr>
+          <tr data-aos="fade-up" data-aos-delay="400">
+            <td>Evansdale</td><td>71.8</td><td>33.8%</td><td class="cell-below">11.6%</td><td>4</td>
+          </tr>
+          <tr class="row-avg" data-aos="fade-up" data-aos-delay="500">
+            <td>DeKalb ES Avg</td><td>71.4</td><td>32.2%</td><td>21.2%</td><td>--</td>
+          </tr>
+        </tbody>
+      </table>
     </div>
   </div>
 </section>
@@ -719,14 +966,13 @@ img { max-width: 100%; height: auto; display: block; }
   <div class="container">
     <p class="overline overline-blue">OUR COMMUNITY</p>
     <h2 class="heading-xl" data-aos="fade-up">The Community Is Growing.<br>Oak Grove Is Growing With It.</h2>
-    <p class="body-text">Closing a school in the middle of a growth corridor makes no sense.</p>
+    <p class="body-text">Oak Grove enrollment has grown 15.2% in two years — and Clifton Corridor development continues to drive new residential growth in the attendance zone.</p>
 
-    <div class="fact-grid" data-aos="zoom-in-up" data-aos-delay="150">
-      <div class="fact-card">
-        <div class="num">+15.2%</div>
-        <h3>Enrollment Growth</h3>
-        <p>388 to 447 students in two years (2023-2025), and the only Lakeside cluster school with zero portable classrooms.</p>
-      </div>
+    <div class="chart-container" data-aos="fade-up" data-aos-duration="700" style="position:relative;height:320px;">
+      <canvas id="enrollment-chart"></canvas>
+    </div>
+
+    <div class="fact-grid" style="margin-top:32px;" data-aos="zoom-in-up" data-aos-delay="150">
       <div class="fact-card">
         <div class="num">2,500+</div>
         <h3>New Homes Coming</h3>
@@ -736,6 +982,30 @@ img { max-width: 100%; height: auto; display: block; }
         <div class="num">$4B</div>
         <h3>Economic Corridor</h3>
         <p>Arthur M. Blank Hospital ($1.5B, opened 2024), Emory at Executive Park ($1B+), and the MARTA Clifton Corridor BRT.</p>
+      </div>
+    </div>
+
+    <div class="absorption-flow" style="margin-top:48px;">
+      <div class="flow-step" data-aos="fade-right" data-aos-delay="0">
+        <div class="step-num">Step 1</div>
+        <div class="step-text">OGE closes</div>
+        <div class="step-detail">447 students displaced</div>
+      </div>
+      <div class="flow-arrow">→</div>
+      <div class="flow-step" data-aos="fade-right" data-aos-delay="150">
+        <div class="step-num">Step 2</div>
+        <div class="step-text">Sagamore Hills</div>
+        <div class="step-detail">90.6% → ~140% utilization</div>
+      </div>
+      <div class="flow-arrow">→</div>
+      <div class="flow-step" data-aos="fade-right" data-aos-delay="300">
+        <div class="step-num">Step 3</div>
+        <div class="step-text">Briarlake</div>
+        <div class="step-detail">72.9% → ~119% utilization</div>
+      </div>
+      <div class="flow-arrow">→</div>
+      <div class="flow-result" data-aos="fade-up" data-aos-delay="450">
+        <div class="step-text">Cluster already has 21 portables across 4 schools</div>
       </div>
     </div>
   </div>
@@ -774,6 +1044,64 @@ img { max-width: 100%; height: auto; display: block; }
     <div class="callout-box urgent" style="margin-top:36px;" data-aos="flip-up" data-aos-delay="200">
       <p><strong>At a public meeting on March 23, 2026, an HPM consultant admitted the recommendation to close Oak Grove was "nothing more than looking at the map and saying these are farther apart."</strong> Not enrollment data, not educational outcomes. We have audio. This firm has no educational expertise, and their recommendations could affect 27 schools.</p>
     </div>
+
+    <!-- Cost Comparison Visual -->
+    <div class="cost-bars" data-aos="fade-up">
+      <div class="cost-bar-row">
+        <div class="cost-bar-label">
+          <span>Annual savings from closure</span>
+          <span class="cost-amount">$800K–$1M/yr</span>
+        </div>
+        <div class="cost-bar-track">
+          <div class="cost-bar-fill green" data-width="2"></div>
+        </div>
+      </div>
+      <div class="cost-bar-row">
+        <div class="cost-bar-label">
+          <span>Cost to rebuild capacity</span>
+          <span class="cost-amount">$76.7M</span>
+        </div>
+        <div class="cost-bar-track">
+          <div class="cost-bar-fill red" data-width="100"></div>
+        </div>
+      </div>
+    </div>
+    <div class="cost-callout">
+      At this savings rate, it would take <strong>77 to 96 years</strong> to offset the cost of rebuilding a single school.
+    </div>
+
+    <!-- Process Fails Checklist -->
+    <h3 class="heading-lg" style="margin-top:56px;" data-aos="fade-up" data-aos-duration="400">The Process Fails Its Own Tests</h3>
+    <div class="process-checklist">
+      <div class="check-card" data-aos="fade-up" data-aos-delay="0">
+        <div class="x-icon">✕</div>
+        <div>
+          <div class="check-condition">The enrollment data accurately projects growth</div>
+          <div class="check-explanation">HPM's model projects a 30%+ drop with no demographic basis</div>
+        </div>
+      </div>
+      <div class="check-card" data-aos="fade-up" data-aos-delay="100">
+        <div class="x-icon">✕</div>
+        <div>
+          <div class="check-condition">Closure saves more than it costs</div>
+          <div class="check-explanation">Savings: ~$800K/yr. Replacement cost: ~$76.7M. Payback: 77–96 years.</div>
+        </div>
+      </div>
+      <div class="check-card" data-aos="fade-up" data-aos-delay="200">
+        <div class="x-icon">✕</div>
+        <div>
+          <div class="check-condition">Receiving schools have capacity</div>
+          <div class="check-explanation">Sagamore: ~140% utilization post-closure. Briarlake: ~119%.</div>
+        </div>
+      </div>
+      <div class="check-card" data-aos="fade-up" data-aos-delay="300">
+        <div class="x-icon">✕</div>
+        <div>
+          <div class="check-condition">The process was independent of compromised leadership</div>
+          <div class="check-explanation">Conceived and staffed under Devon Horton, who resigned following a 17-count federal indictment.</div>
+        </div>
+      </div>
+    </div>
   </div>
 </section>
 
@@ -787,26 +1115,26 @@ img { max-width: 100%; height: auto; display: block; }
     <div class="accordion">
       <div class="accordion-item open">
         <button class="accordion-trigger">
-          Redistrict, Don't Close <span class="icon">+</span>
+          Pause, Study, Then Decide <span class="icon">+</span>
         </button>
         <div class="accordion-content">
-          <div class="accordion-content-inner">Enrollment is up 15.2% and residential development is accelerating. Redistricting is inevitable anyway. Do it now, and do it fairly, instead of closing a school and scrambling to rebuild capacity in three years at far greater cost.</div>
+          <div class="accordion-content-inner">Oak Grove's enrollment has grown 15.2% in two years. The Clifton Corridor has billions in active investment driving continued growth. Before making any irreversible decision about the Lakeside Cluster, the district should pause closure recommendations, allow enrollment trends to develop over the next one to two years, and commission an independent capacity study using current growth projections. If expansion is ultimately needed, Oak Grove's academic performance and teacher retention make it the right investment — and a community-funded site plan already demonstrates feasibility.</div>
         </div>
       </div>
       <div class="accordion-item">
         <button class="accordion-trigger">
-          Reform Administrative Overhead <span class="icon">+</span>
+          Invest in the Problem, Not Around It <span class="icon">+</span>
         </button>
         <div class="accordion-content">
-          <div class="accordion-content-inner">Administrative costs grew 116% since 2019, while instruction spending grew just 23%. A serious audit of central office spending would yield real savings without touching a single classroom or displacing a single child.</div>
+          <div class="accordion-content-inner">82% of DeKalb's projected excess school capacity is concentrated in South DeKalb. North DeKalb schools are overcrowded. A county-wide closure program that targets North DeKalb schools does not solve this — it just moves students into already-strained buildings. A targeted investment of $2.5 to $4 million per year, funded almost entirely by existing federal grants and an existing Emory University partnership, would address the actual root cause: a quality gap driving families to transfer out of their zoned schools. That is a fraction of the $1.5 billion capital program currently on the table, and the funding already exists. The district has the resources. The question is whether it will use them where they are actually needed.</div>
         </div>
       </div>
       <div class="accordion-item">
         <button class="accordion-trigger">
-          Use Real Data for Real Decisions <span class="icon">+</span>
+          The Cost Problem Is in Central Office, Not in Classrooms <span class="icon">+</span>
         </button>
         <div class="accordion-content">
-          <div class="accordion-content-inner">We're asking the board to commission an independent enrollment and capacity study using current growth projections, not outdated snapshots, before any closure vote is taken.</div>
+          <div class="accordion-content-inner">District-level administration grew 116% between 2019 and 2024 — from $50.5 million to $109.1 million — while instruction grew just 23%. General Administration alone grew 162%. Central Support Services grew 66% and exceeded its approved budget in both FY2023 and FY2024. These are not the numbers of a district in fiscal distress that needs to close schools. They are the numbers of a district with a central office spending problem. A serious, independent audit of administrative overhead would identify real savings without displacing a single child, disrupting a single classroom, or spending a dollar on construction. The district's General Fund balance grew 302% in five years — from $129.6 million to $520.8 million. The case for closing schools on fiscal grounds does not hold up against its own financial statements.</div>
         </div>
       </div>
     </div>
@@ -1075,6 +1403,185 @@ document.getElementById('subscribe-form').addEventListener('submit', async (e) =
 });
 </script>
 <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.7/chart.umd.min.js"></script>
 <script>AOS.init({ once: true, duration: 700, offset: 80 });</script>
+<script>
+// ═══ STAT COUNTER ANIMATION ═══
+(function() {
+  function easeOutCubic(t) { return 1 - Math.pow(1 - t, 3); }
+  function animateCounter(el) {
+    const target = parseFloat(el.dataset.target);
+    const suffix = el.dataset.suffix || '';
+    const duration = 1200;
+    const start = performance.now();
+    const decimals = target % 1 !== 0 ? 1 : 0;
+    function update(now) {
+      const elapsed = now - start;
+      const progress = Math.min(elapsed / duration, 1);
+      const value = easeOutCubic(progress) * target;
+      el.textContent = value.toFixed(decimals) + suffix;
+      if (progress < 1) requestAnimationFrame(update);
+    }
+    requestAnimationFrame(update);
+  }
+  const observer = new IntersectionObserver(function(entries) {
+    entries.forEach(function(entry) {
+      if (entry.isIntersecting) {
+        animateCounter(entry.target);
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.3 });
+  document.querySelectorAll('.counter').forEach(function(el) { observer.observe(el); });
+})();
+
+// ═══ COST BAR ANIMATION ═══
+(function() {
+  const observer = new IntersectionObserver(function(entries) {
+    entries.forEach(function(entry) {
+      if (entry.isIntersecting) {
+        entry.target.querySelectorAll('.cost-bar-fill').forEach(function(bar) {
+          bar.style.width = bar.dataset.width + '%';
+        });
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.3 });
+  var costBars = document.querySelector('.cost-bars');
+  if (costBars) observer.observe(costBars);
+})();
+
+// ═══ CLUSTER TABLE SORTING ═══
+(function() {
+  var table = document.getElementById('cluster-table');
+  if (!table) return;
+  var tbody = table.querySelector('tbody');
+  var headers = table.querySelectorAll('th.sortable');
+  var sortDir = {};
+  headers.forEach(function(th) {
+    th.addEventListener('click', function() {
+      var col = parseInt(th.dataset.col);
+      sortDir[col] = sortDir[col] === 'asc' ? 'desc' : 'asc';
+      var rows = Array.from(tbody.querySelectorAll('tr'));
+      var ogeRow = rows.find(function(r) { return r.classList.contains('row-oge'); });
+      var avgRow = rows.find(function(r) { return r.classList.contains('row-avg'); });
+      var sortable = rows.filter(function(r) { return !r.classList.contains('row-oge') && !r.classList.contains('row-avg'); });
+      sortable.sort(function(a, b) {
+        var aVal = parseFloat(a.cells[col].textContent) || 0;
+        var bVal = parseFloat(b.cells[col].textContent) || 0;
+        return sortDir[col] === 'asc' ? aVal - bVal : bVal - aVal;
+      });
+      tbody.innerHTML = '';
+      if (ogeRow) tbody.appendChild(ogeRow);
+      sortable.forEach(function(r) { tbody.appendChild(r); });
+      if (avgRow) tbody.appendChild(avgRow);
+    });
+  });
+})();
+
+// ═══ ENROLLMENT TREND CHART ═══
+(function() {
+  var canvas = document.getElementById('enrollment-chart');
+  if (!canvas) return;
+  var ctx = canvas.getContext('2d');
+  var labels = ['Oct 2019', 'Oct 2021', 'Oct 2022', 'Oct 2023', 'Oct 2025', 'Fall 2026*'];
+  var ogeData = [505, 368, 365, 388, 447, 487];
+  // District trend normalized/indexed to OGE scale
+  var districtData = [505, 480, 465, 458, 450, 445];
+
+  new Chart(ctx, {
+    type: 'line',
+    data: {
+      labels: labels,
+      datasets: [
+        {
+          label: 'OGE Enrollment',
+          data: ogeData,
+          borderColor: '#003DA7',
+          backgroundColor: 'rgba(0,61,167,0.08)',
+          borderWidth: 3,
+          pointRadius: 5,
+          pointBackgroundColor: '#003DA7',
+          fill: true,
+          tension: 0.3,
+          segment: {
+            borderDash: function(ctx) {
+              return ctx.p1DataIndex === 5 ? [6, 4] : undefined;
+            }
+          }
+        },
+        {
+          label: 'District-wide trend (indexed)',
+          data: districtData,
+          borderColor: '#9ca3af',
+          borderWidth: 1.5,
+          pointRadius: 3,
+          pointBackgroundColor: '#9ca3af',
+          borderDash: [4, 3],
+          fill: false,
+          tension: 0.3
+        }
+      ]
+    },
+    options: {
+      responsive: true,
+      maintainAspectRatio: false,
+      interaction: { mode: 'index', intersect: false },
+      plugins: {
+        legend: { display: false },
+        tooltip: {
+          backgroundColor: '#00244D',
+          titleFont: { family: 'Outfit', weight: '600' },
+          bodyFont: { family: 'Outfit' },
+          padding: 12,
+          cornerRadius: 8
+        }
+      },
+      scales: {
+        x: {
+          grid: { display: false },
+          ticks: { font: { family: 'Outfit', size: 12 } }
+        },
+        y: {
+          grid: { color: 'rgba(0,0,0,0.06)' },
+          ticks: { font: { family: 'Outfit', size: 12 } },
+          min: 300
+        }
+      },
+      layout: { padding: { top: 20, right: 16 } }
+    },
+    plugins: [{
+      afterDraw: function(chart) {
+        var ctx = chart.ctx;
+        var meta = chart.getDatasetMeta(0);
+        ctx.font = '600 11px Outfit';
+        // COVID trough annotation (index 2)
+        var pt2 = meta.data[2];
+        ctx.fillStyle = '#B83230';
+        ctx.textAlign = 'center';
+        ctx.fillText('COVID trough', pt2.x, pt2.y - 14);
+        // Growing annotation (index 4)
+        var pt4 = meta.data[4];
+        ctx.fillStyle = '#2D7D46';
+        ctx.fillText('Growing', pt4.x, pt4.y - 14);
+        // Projected annotation (index 5)
+        var pt5 = meta.data[5];
+        ctx.fillStyle = '#003DA7';
+        ctx.fillText('Projected', pt5.x, pt5.y - 14);
+        // Inline labels near endpoints
+        var ogeEnd = meta.data[5];
+        ctx.fillStyle = '#003DA7';
+        ctx.textAlign = 'left';
+        ctx.font = '600 12px Outfit';
+        ctx.fillText('OGE', ogeEnd.x + 8, ogeEnd.y + 4);
+        var distMeta = chart.getDatasetMeta(1);
+        var distEnd = distMeta.data[5];
+        ctx.fillStyle = '#9ca3af';
+        ctx.fillText('District', distEnd.x + 8, distEnd.y + 4);
+      }
+    }]
+  });
+})();
+</script>
 </body>
 </html>
