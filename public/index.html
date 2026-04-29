@@ -724,6 +724,84 @@ img { max-width: 100%; height: auto; display: block; }
   }
 }
 
+/* ═══ PAST EVENTS ═══ */
+.event-date-past {
+  background: var(--text-light);
+  opacity: 0.55;
+}
+.past-event-row {
+  opacity: 0.65;
+}
+.past-event-row:hover {
+  background: none;
+}
+
+/* ═══ TRACY ENDORSEMENT ═══ */
+.tracy-section {
+  background: #3BBDCC;
+  padding: 64px 0;
+}
+.tracy-inner {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 48px;
+  align-items: center;
+}
+.tracy-text {
+  color: #fff;
+}
+.tracy-label {
+  font-size: 0.72rem; font-weight: 700;
+  text-transform: uppercase; letter-spacing: 0.15em;
+  color: rgba(255,255,255,0.7);
+  margin-bottom: 12px;
+}
+.tracy-heading {
+  font-size: clamp(1.4rem, 2.5vw, 2rem);
+  font-weight: 800; line-height: 1.15;
+  letter-spacing: -0.01em;
+  color: #fff;
+  margin-bottom: 16px;
+}
+.tracy-sub {
+  font-size: 0.95rem; line-height: 1.6;
+  color: rgba(255,255,255,0.85);
+  margin-bottom: 28px;
+  max-width: 380px;
+}
+.btn-tracy {
+  background: #F5A520;
+  color: #fff;
+  font-weight: 700;
+  border: none;
+}
+.btn-tracy:hover {
+  background: #e09618;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(0,0,0,0.15);
+}
+.tracy-image-wrap {
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 12px 40px rgba(0,0,0,0.2);
+  border: 3px solid rgba(255,255,255,0.25);
+}
+.tracy-image-wrap img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+@media (max-width: 768px) {
+  .tracy-inner {
+    grid-template-columns: 1fr;
+    gap: 28px;
+  }
+  .tracy-image-wrap {
+    max-width: 420px;
+    margin: 0 auto;
+  }
+}
+
 /* AOS overrides */
 [data-aos] { transition-duration: 0.8s; }
 
@@ -852,11 +930,12 @@ img { max-width: 100%; height: auto; display: block; }
   </div>
 </header>
 
-<!-- ALERT -->
+<!-- ALERT – hidden until next meeting is scheduled; restore and update date when needed
 <div class="alert">
   Next Board of Education meeting: April 20. Your presence matters.
   <a href="https://bit.ly/saveOGE" target="_blank" rel="noopener">View all events &#8594;</a>
 </div>
+-->
 
 <!-- VIDEO -->
 <section class="video-section">
@@ -1190,13 +1269,6 @@ img { max-width: 100%; height: auto; display: block; }
 
     <div class="event-list">
       <div class="event-row">
-        <div class="event-date"><span class="month">Apr</span><span class="day">20</span></div>
-        <div class="event-info">
-          <h3>Board of Education Meeting</h3>
-          <p>Public input session. Speaker signups being coordinated. 25 slots available.</p>
-        </div>
-      </div>
-      <div class="event-row">
         <div class="event-date"><span class="month">Apr</span><span class="day">29</span></div>
         <div class="event-info">
           <h3>SAP Committee Meeting</h3>
@@ -1213,6 +1285,39 @@ img { max-width: 100%; height: auto; display: block; }
     </div>
 
     <a href="https://bit.ly/saveOGE" target="_blank" rel="noopener" class="btn btn-navy btn-arrow" style="margin-top:28px;">View Full Calendar</a>
+
+    <!-- PAST NEWS -->
+    <div style="margin-top:56px;">
+      <p class="overline overline-blue">PAST NEWS</p>
+      <div class="event-list past-events">
+        <div class="event-row past-event-row">
+          <div class="event-date event-date-past"><span class="month">Apr</span><span class="day">20</span></div>
+          <div class="event-info">
+            <h3 style="color:var(--text-mid);">Board of Education Meeting</h3>
+            <p>Public input session. 25 speakers showed up. Thank you to everyone who came out.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TRACY ENDORSEMENT -->
+<section class="tracy-section">
+  <div class="container">
+    <div class="tracy-inner">
+      <div class="tracy-text" data-aos="fade-right">
+        <p class="tracy-label">Board of Education — District 4</p>
+        <h2 class="tracy-heading">We Support Tracy Brisson for DeKalb Schools</h2>
+        <p class="tracy-sub">Tracy is an OGE parent, a former teacher, and a 29-year public administrator. She has been in this fight from the beginning. Elect her on May 19.</p>
+        <a href="https://tracy4dekalbschools.com/" target="_blank" rel="noopener" class="btn btn-tracy btn-arrow">Learn More & Volunteer</a>
+      </div>
+      <div class="tracy-image-wrap" data-aos="fade-left" data-aos-delay="150">
+        <a href="https://tracy4dekalbschools.com/" target="_blank" rel="noopener">
+          <img src="images/tracy-brisson-sign.png" alt="Tracy L. Brisson for School Board — Election May 19, Early Voting April 27">
+        </a>
+      </div>
+    </div>
   </div>
 </section>
 
@@ -1224,17 +1329,15 @@ img { max-width: 100%; height: auto; display: block; }
 
     <div class="action-grid" data-aos="fade-up" data-aos-delay="100">
       <div class="action-card action-card-featured">
-        <span class="badge-deadline">Closes April 12</span>
         <div class="action-icon">&#128203;</div>
-        <h3>Take the SAP Round 2 Survey</h3>
-        <p>Review our recommended responses before you submit so your voice hits the points that matter most.</p>
+        <h3>Read Our SAP Survey Response Guide</h3>
+        <p>The Round 2 survey has closed. Read our recommended responses to understand the key issues and prepare for what comes next.</p>
         <a href="https://docs.google.com/document/d/1G9GkDq0AwYQbfakO_Ep2r-SQg33INOATIHjZbdFJS2k/edit?usp=sharing" target="_blank" rel="noopener" class="btn btn-blue">View Response Guide</a>
-        <a href="https://www.dekalbschoolsga.org/divisions/access-and-opportunity/student-assignment/sap/sap-survey" target="_blank" rel="noopener" class="btn btn-outline-blue btn-secondary">Go to Survey</a>
       </div>
       <div class="action-card">
         <div class="action-icon">&#128197;</div>
         <h3>Show Up</h3>
-        <p>The next board meeting is April 20. Your presence in the room sends a message.</p>
+        <p>The SAP Committee meets April 29. Your presence in the room sends a message.</p>
         <a href="https://bit.ly/saveOGE" target="_blank" rel="noopener" class="btn btn-blue">Add to Calendar</a>
       </div>
       <div class="action-card">
